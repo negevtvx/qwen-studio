@@ -1,0 +1,91 @@
+{
+  "app": {
+    "port": 8190,
+    "comfyUrl": "http://127.0.0.1:8188",
+    "comfyRoot": "",
+    "launchScript": "run_nvidia_gpu.bat",
+    "launchExtraArgs": ["--disable-auto-launch", "--preview-method", "auto"],
+    "outputDir": "outputs",
+    "ollamaUrl": "http://127.0.0.1:11434",
+    "autoStartComfyOnGenerate": true,
+    "quitWhenWindowClosed": true,
+    "stopComfyOnQuit": true,
+    "vram": "12",
+    "models": {
+      "vae": "qwen_image_2.1_vae_bf16.safetensors"
+    },
+    "profiles": {
+      "12": {
+        "label": "12 GB",
+        "unet": "Qwen-Image-2.1-Turbo-AD-Q4_K.gguf",
+        "clip": "Qwen-Image-2.1-Turbo-Uncensored-AD-Q4_K.gguf",
+        "defaultMp": 1,
+        "maxMp": 1.5,
+        "cacheDevice": "cpu",
+        "cacheDtype": "int8",
+        "blurb": "Q4 pack · 1 MP is the sweet spot on 12 GB"
+      },
+      "16": {
+        "label": "16 GB",
+        "unet": "Qwen-Image-2.1-Turbo-AD-Q5_K.gguf",
+        "clip": "Qwen-Image-2.1-Turbo-Uncensored-AD-Q5_K.gguf",
+        "defaultMp": 1.5,
+        "maxMp": 2,
+        "cacheDevice": "cpu",
+        "cacheDtype": "int8",
+        "blurb": "Q5 pack · comfortable up to 2 MP"
+      },
+      "24": {
+        "label": "24 GB",
+        "unet": "Qwen-Image-2.1-Turbo-Q8_0.gguf",
+        "clip": "Qwen-Image-2.1-Turbo-Uncensored-Q8_0.gguf",
+        "defaultMp": 2,
+        "maxMp": 4,
+        "cacheDevice": "auto",
+        "cacheDtype": "default",
+        "blurb": "Q8 pack · up to native 2K"
+      }
+    }
+  },
+  "gen": {
+    "prompt": "",
+    "negative": "",
+    "transparent": false,
+    "editPrompt": "",
+    "editResolution": 1024,
+    "editTransparent": false,
+    "model": "12",
+    "aspect": "1:1",
+    "megapixels": 1,
+    "customSize": false,
+    "width": 1024,
+    "height": 1024,
+    "steps": 8,
+    "cfg": 1,
+    "sampler": "euler",
+    "scheduler": "simple",
+    "seed": 1234567,
+    "seedLocked": false,
+    "batch": 1,
+    "cacheDevice": "cpu",
+    "cacheDtype": "int8",
+    "upscaleFactor": 2,
+    "upscaleDenoise": 0.35,
+    "upscaleSteps": 3,
+    "upscaleMaxMp": 1.5,
+    "varyMode": "subtle",
+    "varyCount": 4
+  },
+  "ui": {
+    "tab": "create",
+    "incognito": false,
+    "logOpen": false,
+    "advancedOpen": false,
+    "negativeOpen": false,
+    "galleryFilter": "all",
+    "calib": {},
+    "enhanceModel": "",
+    "enhanceKeepLoaded": false,
+    "vramGuard": "ask"
+  }
+}

@@ -1,0 +1,5 @@
+outputs/
+data/
+config/settings.json
+ComfyUI/
+*.log

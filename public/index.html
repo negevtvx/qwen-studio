@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qwen Studio</title>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-power" viewBox="0 0 24 24"><path d="M12 3v9"/><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.4a3 3 0 0 0 1.9 1.9L21 12l-5.3 1.8a3 3 0 0 0-1.9 1.9L12 21l-1.8-5.3a3 3 0 0 0-1.9-1.9L3 12l5.3-1.7a3 3 0 0 0 1.9-1.9z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-dice" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><circle cx="8.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="15.5" cy="15.5" r=".9" fill="currentColor"/><circle cx="15.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="8.5" cy="15.5" r=".9" fill="currentColor"/><circle cx="12" cy="12" r=".9" fill="currentColor"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-unlock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 7.6-1.7"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M9 7V4.5h6V7"/><path d="M6.5 7l1 13h9l1-13"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3.5 7.5a2 2 0 0 1 2-2h3.8l2 2.2h7.2a2 2 0 0 1 2 2v7.8a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-upscale" viewBox="0 0 24 24"><path d="M14 4h6v6"/><path d="M20 4l-7 7"/><path d="M10 20H4v-6"/><path d="M4 20l7-7"/></symbol>
+    <symbol id="i-wand" viewBox="0 0 24 24"><path d="M4 20 15 9"/><path d="M13.5 7.5l3 3"/><path d="M17 3v2M20 6h-2M20 11v1.5M9 3.5V5M21 3l-1.5 1.5"/></symbol>
+    <symbol id="i-reuse" viewBox="0 0 24 24"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1L3.5 8.5"/><path d="M3.5 3.5v5h5"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24"><path d="m5 16.5 5-4.5-5-4.5"/><path d="M12.5 17.5H19"/></symbol>
+    <symbol id="i-chip" viewBox="0 0 24 24"><rect x="5.5" y="5.5" width="13" height="13" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9.5 2.5v3M14.5 2.5v3M9.5 18.5v3M14.5 18.5v3M2.5 9.5h3M2.5 14.5h3M18.5 9.5h3M18.5 14.5h3"/></symbol>
+    <symbol id="i-mask" viewBox="0 0 24 24"><path d="M2.5 11.5h19"/><path d="M5 11.5 7 5.5h10l2 6"/><circle cx="7.5" cy="16.5" r="2.8"/><circle cx="16.5" cy="16.5" r="2.8"/><path d="M10.3 16.5c1.1-.8 2.3-.8 3.4 0"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="2.5"/><circle cx="9" cy="9" r="1.8"/><path d="m20.5 15-4.5-4.5-10 10"/></symbol>
+    <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6.5" r="2.7"/><circle cx="6" cy="17.5" r="2.7"/><path d="M20 4.5 8.2 15.6M14.5 13.9 20 19.5M8.2 8.4 11.5 11.6"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8.5 3.5h-3a2 2 0 0 0-2 2v3M20.5 8.5v-3a2 2 0 0 0-2-2h-3M3.5 15.5v3a2 2 0 0 0 2 2h3M15.5 20.5h3a2 2 0 0 0 2-2v-3"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2.5 4 13.5h7.5L10.5 21.5l9-11H12z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></symbol>
+    <symbol id="i-save" viewBox="0 0 24 24"><path d="M12 3.5v11"/><path d="m7.5 10 4.5 4.5 4.5-4.5"/><path d="M4.5 20.5h15"/></symbol>
+    <symbol id="i-alpha" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="2.5"/><path d="M3.5 12h17M12 3.5v17" opacity=".35"/><rect x="3.5" y="3.5" width="8.5" height="8.5" fill="currentColor" opacity=".35" stroke="none"/><rect x="12" y="12" width="8.5" height="8.5" fill="currentColor" opacity=".35" stroke="none"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24"><path d="M3.5 12a8.5 8.5 0 1 0 2.5-6"/><path d="M3.5 4.5V9H8"/><path d="M12 8v4.5l3 1.8"/></symbol>
+    <symbol id="i-split" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><path d="M12 2.5v19"/><path d="m8 10-2 2 2 2M16 10l2 2-2 2"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3.5 8.5 4.3-8.5 4.3-8.5-4.3z"/><path d="m3.5 12 8.5 4.3 8.5-4.3"/><path d="m3.5 16.2 8.5 4.3 8.5-4.3"/></symbol>
+  </defs>
+</svg>
+
+<div class="app" id="app" data-tab="create">
+  <!-- ============ top bar ============ -->
+  <header class="topbar">
+    <div class="brand">
+      <img src="/icon.svg" alt="" class="brand-mark">
+      <div class="brand-text"><span class="brand-name">Qwen Studio</span><span class="brand-sub">Turbo · 12 / 16 / 24 GB</span></div>
+    </div>
+
+    <div class="comfy-ctl">
+      <div class="status-pill" id="statusPill" data-state="offline" title="ComfyUI status">
+        <span class="dot"></span><span class="status-label" id="statusLabel">Offline</span><span class="status-sub" id="statusSub"></span>
+      </div>
+      <button class="btn btn-sm" id="comfyBtn"><svg class="ic"><use href="#i-play"/></svg><span>Start ComfyUI</span></button>
+    </div>
+
+    <div class="topbar-spacer"></div>
+
+    <button class="meter" id="vramMeter" title="GPU memory (all processes) — click for details">
+      <span class="meter-label">VRAM</span>
+      <span class="meter-bar"><i id="vramBar"></i></span>
+      <span class="meter-val" id="vramVal">–</span>
+    </button>
+    <button class="icon-btn" id="freeBtn" title="Free VRAM — unload models from ComfyUI"><svg class="ic"><use href="#i-zap"/></svg></button>
+    <button class="chip-btn" id="ollamaBtn" title="Ollama models in memory"><span class="ollama-dot"></span><span id="ollamaLabel">Ollama</span></button>
+    <div class="topbar-sep"></div>
+    <button class="icon-btn toggle" id="incognitoBtn" title="Incognito: keep prompts and images in memory only"><svg class="ic"><use href="#i-mask"/></svg></button>
+    <button class="icon-btn" id="systemBtn" title="System panel"><svg class="ic"><use href="#i-chip"/></svg></button>
+    <button class="icon-btn" id="quitBtn" title="Quit Qwen Studio"><svg class="ic"><use href="#i-power"/></svg></button>
+  </header>
+
+  <div class="incognito-banner" id="incognitoBanner" hidden>
+    <svg class="ic"><use href="#i-mask"/></svg>
+    <span><b>Incognito.</b> New images and prompts stay in memory only — nothing goes to your gallery, history or settings, and ComfyUI's job history is cleared after each run. <span class="banner-fine">Edit/upscale sources pass through ComfyUI's input folder as temp files, deleted when the job ends.</span></span>
+    <button class="btn btn-xs" id="incognitoOff">Turn off</button>
+  </div>
+
+  <main class="workspace">
+    <!-- ============ controls ============ -->
+    <aside class="controls">
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" data-tab="create"><svg class="ic"><use href="#i-spark"/></svg>Create</button>
+        <button class="tab" role="tab" data-tab="edit"><svg class="ic"><use href="#i-wand"/></svg>Edit</button>
+      </div>
+
+      <div class="controls-scroll" id="controlsScroll">
+        <section class="group">
+          <div class="presets" id="presets"></div>
+        </section>
+
+        <!-- create -->
+        <section class="group only-create">
+          <div class="field-head">
+            <label for="prompt">Prompt</label>
+            <div class="field-tools">
+              <button class="tool enhance-btn" data-enhance="create" title="Enhance with a local LLM (Ollama) using the official Qwen 2.1 rewriting brief"><svg class="ic"><use href="#i-spark"/></svg><span>Enhance</span></button>
+              <button class="tool" id="favPromptBtn" title="Add to favorites"><svg class="ic"><use href="#i-star"/></svg></button>
+              <button class="tool" data-history="create" title="Prompt history & favorites"><svg class="ic"><use href="#i-history"/></svg></button>
+            </div>
+          </div>
+          <textarea id="prompt" class="prompt" rows="7" spellcheck="true" placeholder="Describe the image you want. Turbo follows long, specific descriptions well — subject, setting, lighting, style, any text in quotes."></textarea>
+          <div class="enhance-card" data-for="create" hidden></div>
+          <div class="toggles-row">
+            <label class="switch"><input type="checkbox" id="transparent"><span class="track"></span><span>Transparent background</span></label>
+            <button class="linkish" id="negToggle">Negative prompt</button>
+          </div>
+        </section>
+
+        <!-- edit -->
+        <section class="group only-edit">
+          <div class="field-head"><label>Images</label><span class="hint" id="refCount">image 1 is edited · up to 10</span></div>
+          <div class="refs" id="refs"></div>
+          <input type="file" id="refFile" accept="image/png,image/jpeg,image/webp,image/bmp" multiple hidden>
+        </section>
+        <section class="group only-edit">
+          <div class="field-head">
+            <label for="editPrompt">Instruction</label>
+            <div class="field-tools">
+              <button class="tool enhance-btn" data-enhance="edit" title="Enhance with a local vision LLM (Ollama) using the official Qwen 2.1 edit brief"><svg class="ic"><use href="#i-spark"/></svg><span>Enhance</span></button>
+              <button class="tool" data-history="edit" title="Instruction history & favorites"><svg class="ic"><use href="#i-history"/></svg></button>
+            </div>
+          </div>
+          <textarea id="editPrompt" class="prompt" rows="4" placeholder="What should change? Refer to extra images as <image2>, <image3>… e.g. “Put the jacket from <image2> on the person”."></textarea>
+          <div class="enhance-card" data-for="edit" hidden></div>
+          <div class="quick" id="quickEdits"></div>
+          <div class="toggles-row">
+            <label class="switch"><input type="checkbox" id="editTransparent"><span class="track"></span><span>Keep transparency (PNG alpha)</span></label>
+            <button class="linkish" id="negToggle2">Negative prompt</button>
+          </div>
+        </section>
+
+        <section class="group neg-group" id="negGroup" hidden>
+          <div class="field-head"><label for="negative">Negative prompt</label><span class="hint">used only when CFG &gt; 1</span></div>
+          <textarea id="negative" class="prompt small" rows="2" placeholder="Things to avoid"></textarea>
+        </section>
+
+        <!-- size (create) -->
+        <section class="group only-create">
+          <div class="field-head"><label>Size</label><span class="hint mono" id="sizeHint"></span></div>
+          <div class="aspects" id="aspects"></div>
+          <div class="seg seg-mp" id="mpSeg"></div>
+          <div class="custom-size" id="customSize" hidden>
+            <label class="num"><span>W</span><input type="number" id="width" step="32" min="256" max="4096"></label>
+            <span class="times">×</span>
+            <label class="num"><span>H</span><input type="number" id="height" step="32" min="256" max="4096"></label>
+            <button class="icon-btn sm" id="swapWH" title="Swap"><svg class="ic"><use href="#i-reuse"/></svg></button>
+          </div>
+        </section>
+
+        <!-- size (edit) -->
+        <section class="group only-edit">
+          <div class="field-head"><label>Working resolution</label><span class="hint">output follows image 1's shape</span></div>
+          <div class="seg" id="editResSeg"></div>
+        </section>
+
+        <section class="group">
+          <div class="field-head"><label>Model</label><span class="hint" id="modelHint"></span></div>
+          <div class="seg seg-model" id="modelSeg">
+            <button data-model="12"><b>12 GB</b><small>Q4 · 1 MP</small></button>
+            <button data-model="16"><b>16 GB</b><small>Q5 · 2 MP</small></button>
+            <button data-model="24"><b>24 GB</b><small>Q8 · 2K</small></button>
+          </div>
+        </section>
+
+        <section class="group row-2">
+          <div>
+            <div class="field-head"><label for="seed">Seed</label></div>
+            <div class="seed">
+              <input id="seed" class="mono" type="text" inputmode="numeric" autocomplete="off">
+              <button class="icon-btn sm" id="seedDice" title="New random seed"><svg class="ic"><use href="#i-dice"/></svg></button>
+              <button class="icon-btn sm toggle" id="seedLock" title="Lock seed"><svg class="ic"><use href="#i-unlock"/></svg></button>
+            </div>
+            <div class="hint seed-last" id="seedLast"></div>
+          </div>
+          <div>
+            <div class="field-head"><label>Batch</label></div>
+            <div class="stepper">
+              <button id="batchMinus" aria-label="Fewer">−</button>
+              <input id="batch" type="number" min="1" max="32">
+              <button id="batchPlus" aria-label="More">+</button>
+            </div>
+          </div>
+        </section>
+
+        <details class="group advanced" id="advanced">
+          <summary><svg class="ic"><use href="#i-sliders"/></svg>Advanced<svg class="ic chev"><use href="#i-chev"/></svg></summary>
+          <div class="adv-grid">
+            <div class="slider-field">
+              <div class="field-head"><label for="steps">Steps</label><input class="mini mono" id="stepsNum" type="number" min="1" max="200"></div>
+              <input type="range" id="steps" min="1" max="80">
+            </div>
+            <div class="slider-field">
+              <div class="field-head"><label for="cfg">CFG</label><input class="mini mono" id="cfgNum" type="number" min="0" max="30" step="0.1"></div>
+              <input type="range" id="cfg" min="1" max="8" step="0.1">
+              <div class="hint">CFG 1 with 8 Euler steps is the distilled Turbo schedule. Above 1 enables the negative prompt and doubles sampling cost.</div>
+            </div>
+            <label class="select-field"><span>Sampler</span><select id="sampler"></select></label>
+            <label class="select-field"><span>Scheduler</span><select id="scheduler"></select></label>
+            <label class="select-field"><span>KV cache</span>
+              <select id="cacheDevice"><option value="auto">auto</option><option value="gpu">gpu</option><option value="cpu">cpu (RAM)</option><option value="off">off</option></select>
+            </label>
+            <label class="select-field"><span>Cache precision</span>
+              <select id="cacheDtype"><option value="default">lossless</option><option value="int8">int8</option><option value="int4">int4</option></select>
+            </label>
+            <label class="switch wide only-create"><input type="checkbox" id="customToggle"><span class="track"></span><span>Custom width × height</span></label>
+          </div>
+          <div class="adv-foot">
+            <button class="btn btn-sm ghost" id="resetBtn"><svg class="ic"><use href="#i-reuse"/></svg>Reset to defaults</button>
+            <button class="btn btn-sm ghost" id="openOutputs"><svg class="ic"><use href="#i-folder"/></svg>Output folder</button>
+          </div>
+        </details>
+      </div>
+
+      <div class="generate-bar">
+        <div class="gen-buttons">
+          <button class="btn-primary" id="generateBtn"><svg class="ic"><use href="#i-spark"/></svg><span id="generateLabel">Generate</span><kbd>Ctrl ↵</kbd></button>
+          <button class="btn-cancel" id="cancelBtn" title="Cancel current (Ctrl+.) — right-click to cancel all" hidden><svg class="ic"><use href="#i-stop"/></svg></button>
+        </div>
+        <div class="gen-meta" id="genMeta"></div>
+      </div>
+    </aside>
+
+    <!-- ============ stage ============ -->
+    <section class="stage">
+      <div class="queue" id="queue"></div>
+      <div class="canvas" id="canvas">
+        <div class="empty" id="empty">
+          <div class="empty-mark"><img src="/icon.svg" alt=""></div>
+          <h2 id="emptyTitle">Ready when you are</h2>
+          <p id="emptyText">Write a prompt and press <kbd>Ctrl</kbd> <kbd>↵</kbd>.</p>
+          <button class="btn" id="emptyStart" hidden><svg class="ic"><use href="#i-play"/></svg>Start ComfyUI</button>
+        </div>
+        <div class="frame" id="frame" hidden>
+          <img id="stageImg" alt="">
+          <img id="previewImg" class="preview" alt="" hidden>
+        </div>
+        <div class="live" id="live" hidden>
+          <div class="live-bar"><i id="liveBar"></i></div>
+          <div class="live-row">
+            <span class="live-phase" id="livePhase">Starting…</span>
+            <span class="live-stats mono" id="liveStats"></span>
+            <button class="btn btn-xs ghost" id="liveCancel"><svg class="ic"><use href="#i-stop"/></svg>Cancel</button>
+          </div>
+        </div>
+        <button class="nav prev" id="navPrev" title="Previous (←)"><svg class="ic"><use href="#i-left"/></svg></button>
+        <button class="nav next" id="navNext" title="Next (→)"><svg class="ic"><use href="#i-right"/></svg></button>
+      </div>
+      <div class="details" id="details" hidden>
+        <div class="details-main">
+          <p class="details-prompt" id="detailsPrompt"></p>
+          <div class="details-chips" id="detailsChips"></div>
+        </div>
+        <div class="details-actions">
+          <button class="act" id="actReuse" title="Reuse these settings (R)"><svg class="ic"><use href="#i-reuse"/></svg><span>Reuse</span></button>
+          <button class="act" id="actEdit" title="Send to Edit (E)"><svg class="ic"><use href="#i-wand"/></svg><span>Edit</span></button>
+          <button class="act" id="actUpscale" title="Upscale / refine (U)"><svg class="ic"><use href="#i-upscale"/></svg><span>Upscale</span></button>
+          <button class="act" id="actVary" title="Variations (V)"><svg class="ic"><use href="#i-layers"/></svg><span>Vary</span></button>
+          <button class="act" id="actBgRemove" title="Remove background"><svg class="ic"><use href="#i-scissors"/></svg><span>Cutout</span></button>
+          <button class="act" id="actCompare" title="Compare with the source (C) — or Alt+click any image in the gallery"><svg class="ic"><use href="#i-split"/></svg><span>Compare</span></button>
+          <span class="act-sep"></span>
+          <button class="act icon" id="actStar" title="Star (S)"><svg class="ic"><use href="#i-star"/></svg></button>
+          <button class="act icon" id="actKeep" title="Save to gallery (leaves incognito session)" hidden><svg class="ic"><use href="#i-save"/></svg></button>
+          <button class="act icon" id="actCopy" title="Copy image"><svg class="ic"><use href="#i-copy"/></svg></button>
+          <button class="act icon" id="actFolder" title="Show in folder"><svg class="ic"><use href="#i-folder"/></svg></button>
+          <button class="act icon" id="actFull" title="Full screen (F)"><svg class="ic"><use href="#i-expand"/></svg></button>
+          <button class="act icon danger" id="actDelete" title="Delete — goes to the Recycle Bin (Del)"><svg class="ic"><use href="#i-trash"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ gallery ============ -->
+    <aside class="gallery">
+      <div class="gallery-head">
+        <div class="seg seg-sm" id="galleryFilter">
+          <button data-filter="all">All</button>
+          <button data-filter="starred"><svg class="ic"><use href="#i-star"/></svg></button>
+          <button data-filter="session" id="sessionFilterBtn"><svg class="ic"><use href="#i-mask"/></svg><span id="sessionCount"></span></button>
+        </div>
+        <span class="gallery-count" id="galleryCount"></span>
+      </div>
+      <label class="search"><svg class="ic"><use href="#i-search"/></svg><input id="gallerySearch" placeholder="Search prompts or seed"></label>
+      <div class="grid" id="grid"></div>
+      <div class="grid-empty" id="gridEmpty" hidden>No images yet.</div>
+    </aside>
+  </main>
+
+  <!-- ============ logs ============ -->
+  <section class="logs" id="logs">
+    <button class="logs-head" id="logsHead">
+      <svg class="ic"><use href="#i-terminal"/></svg>
+      <span class="logs-title">ComfyUI log</span>
+      <span class="logs-badge" id="logsBadge" hidden></span>
+      <span class="logs-last mono" id="logsLast"></span>
+      <svg class="ic chev"><use href="#i-chev"/></svg>
+    </button>
+    <div class="logs-body">
+      <div class="logs-tools">
+        <label class="switch xs"><input type="checkbox" id="logsFollow" checked><span class="track"></span><span>Follow</span></label>
+        <label class="switch xs"><input type="checkbox" id="logsErrorsOnly"><span class="track"></span><span>Errors only</span></label>
+        <span class="topbar-spacer"></span>
+        <button class="btn btn-xs ghost" id="logsCopy"><svg class="ic"><use href="#i-copy"/></svg>Copy</button>
+        <button class="btn btn-xs ghost" id="logsClear">Clear view</button>
+      </div>
+      <div class="logs-scroll mono" id="logsScroll"></div>
+    </div>
+  </section>
+</div>
+
+<!-- system drawer -->
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head"><h3>System</h3><button class="icon-btn" id="drawerClose"><svg class="ic"><use href="#i-x"/></svg></button></div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+
+<!-- history popover -->
+<div class="popover" id="historyPop" hidden>
+  <div class="pop-head">
+    <div class="seg seg-sm" id="histFilter"><button data-f="all">Recent</button><button data-f="fav"><svg class="ic"><use href="#i-star"/></svg>Favorites</button></div>
+    <label class="search sm"><svg class="ic"><use href="#i-search"/></svg><input id="histSearch" placeholder="Filter"></label>
+  </div>
+  <div class="pop-list" id="histList"></div>
+</div>
+
+<!-- modal -->
+<div class="modal-wrap" id="modalWrap" hidden>
+  <div class="modal" id="modal" role="dialog" aria-modal="true"></div>
+</div>
+
+<!-- lightbox -->
+<div class="lightbox" id="lightbox" hidden>
+  <img id="lbImg" alt="">
+  <button class="icon-btn lb-close" id="lbClose"><svg class="ic"><use href="#i-x"/></svg></button>
+  <button class="nav prev" id="lbPrev"><svg class="ic"><use href="#i-left"/></svg></button>
+  <button class="nav next" id="lbNext"><svg class="ic"><use href="#i-right"/></svg></button>
+  <div class="lb-caption mono" id="lbCaption"></div>
+</div>
+
+<div class="toasts" id="toasts"></div>
+<div class="dropveil" id="dropVeil" hidden><div><svg class="ic"><use href="#i-image"/></svg>Drop images to edit</div></div>
+</body>
+</html>
