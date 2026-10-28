@@ -154,9 +154,10 @@ if (-not (Test-Path $alias)) {
 Get-File 'https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors' (Join-Path $vaeDir 'qwen_image_2.1_vae_bf16.safetensors') 200000000
 
 Say "Settings"
-$defaults = [System.IO.File]::ReadAllText((Join-Path $root 'config\defaults.json')) | ConvertFrom-Json
+$utf8 = New-Object System.Text.UTF8Encoding $false
+$defaults = [System.IO.File]::ReadAllText((Join-Path $root 'config\defaults.json'), $utf8) | ConvertFrom-Json
 $settingsPath = Join-Path $root 'config\settings.json'
-if (Test-Path $settingsPath) { $data = [System.IO.File]::ReadAllText($settingsPath) | ConvertFrom-Json } else { $data = $defaults }
+if (Test-Path $settingsPath) { $data = [System.IO.File]::ReadAllText($settingsPath, $utf8) | ConvertFrom-Json } else { $data = $defaults }
 $data.app.comfyRoot = $comfy
 $data.app.vram = $Vram
 if ($Port -gt 0) { $data.app.port = $Port }
@@ -172,7 +173,7 @@ if ($Vram -eq '12') {
   $data.app.launchExtraArgs = @('--disable-auto-launch', '--preview-method', 'auto', '--disable-dynamic-vram')
 }
 $json = $data | ConvertTo-Json -Depth 8
-[System.IO.File]::WriteAllText($settingsPath, $json)
+[System.IO.File]::WriteAllText($settingsPath, $json, $utf8)
 Write-Host "  $Vram GB pack is the default. Run Install.bat again to add another size."
 
 Say "Shortcut"
