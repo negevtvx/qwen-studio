@@ -22,6 +22,14 @@ Run `Install.bat` again later to add another size. In the app, only the sizes yo
 | `16` | Q5 pack, about 13 GB | up to about 2 megapixels |
 | `24` | Q8 pack, about 18 GB | up to native 2K |
 
+## What you use it for
+
+You want a picture, not a node graph. Type what you want, pick how big it should be and which VRAM pack to spend, then press **Generate**. ComfyUI starts in the background. The image lands in the middle, and every run stays in the strip on the right.
+
+From a finished image you can reuse the exact settings, send it to **Edit**, upscale it, make variations, or cut the subject out. Closing the window stops the ComfyUI this app started.
+
+<img src="examples/ui.jpg" width="920" alt="Qwen Studio: prompt on the left, the image in the middle, past runs on the right">
+
 ## Examples
 
 Same prompt, same seed, 1024×1024, 8 steps. The only change is the VRAM pack.
@@ -40,8 +48,6 @@ Same prompt, same seed, 1024×1024, 8 steps. The only change is the VRAM pack.
 
 Q4 on 12 GB already holds the same picture. Q5 and Q8 keep a little more detail in hair, signs, and skin.
 
-## After it is open
-
-Generate with Ctrl+Enter. Images are saved in `outputs\`. Closing the window stops the ComfyUI process this app started.
+Images are saved in `outputs\`.
 
 The models are [Qwen-Image-2.1-Turbo](https://huggingface.co/AtomicChat/Qwen-Image-2.1-Turbo-GGUF) and the [uncensored text encoder](https://huggingface.co/AtomicChat/Qwen-Image-2.1-Turbo-Uncensored-GGUF), plus the [official VAE](https://huggingface.co/Comfy-Org/Qwen-Image-2.1). The denoiser is under the Qwen Research License. The text encoder is Apache-2.0. Do not use it to make sexual images of minors, or intimate images of real people without their consent.
