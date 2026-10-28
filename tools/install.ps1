@@ -154,9 +154,9 @@ if (-not (Test-Path $alias)) {
 Get-File 'https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors' (Join-Path $vaeDir 'qwen_image_2.1_vae_bf16.safetensors') 200000000
 
 Say "Settings"
-$defaults = Get-Content (Join-Path $root 'config\defaults.json') -Raw | ConvertFrom-Json
+$defaults = [System.IO.File]::ReadAllText((Join-Path $root 'config\defaults.json')) | ConvertFrom-Json
 $settingsPath = Join-Path $root 'config\settings.json'
-if (Test-Path $settingsPath) { $data = Get-Content $settingsPath -Raw | ConvertFrom-Json } else { $data = $defaults }
+if (Test-Path $settingsPath) { $data = [System.IO.File]::ReadAllText($settingsPath) | ConvertFrom-Json } else { $data = $defaults }
 $data.app.comfyRoot = $comfy
 $data.app.vram = $Vram
 if ($Port -gt 0) { $data.app.port = $Port }
