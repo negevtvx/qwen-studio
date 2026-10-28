@@ -1,21 +1,47 @@
 # Qwen Studio
 
-A small local window for **Qwen Image 2.1 Turbo**. You pick how much VRAM you have. The installer downloads the matching model and opens the app. There is no node graph.
+A local window for **Qwen Image 2.1 Turbo**. You type how much VRAM you have. It downloads that model and opens the app. No node graph.
 
-Double-click **`Install.bat`**.
+## Install
 
-| VRAM | What it downloads | Comfortable size |
+You need **Windows** and an **NVIDIA** GPU.
+
+1. Install [Node.js 22](https://nodejs.org) if it is not already installed. The installer will try to do this for you.
+2. [Download this project](https://github.com/negevtvx/qwen-studio/archive/refs/heads/master.zip) and unzip it.
+3. Double-click **`Install.bat`**.
+4. Type **`12`**, **`16`**, or **`24`** and press Enter.
+5. Wait for the download. The app opens when it is done.
+
+If you do not already have ComfyUI, press Enter when it asks. It downloads the official Windows build.
+
+Run `Install.bat` again later to add another size. In the app, only the sizes you downloaded can be selected.
+
+| You type | What you get | Good for |
 |---|---|---|
-| **12 GB** | Q4 Turbo denoiser + Q4 uncensored text encoder | 1 megapixel (1024) |
-| **16 GB** | Q5 pack | up to about 2 megapixels |
-| **24 GB** | Q8 pack | up to native 2K |
+| `12` | Q4 pack, about 10 GB | 1024 images |
+| `16` | Q5 pack, about 13 GB | up to about 2 megapixels |
+| `24` | Q8 pack, about 18 GB | up to native 2K |
 
-Each pack is a few to about 18 GB. The same vision file and VAE are shared. Run `Install.bat` again to add another size. In the app, the 12 / 16 / 24 buttons light up only after that pack is on disk.
+## Examples
 
-You need an NVIDIA GPU, Windows, and Node.js 22 or newer. If Node is missing, the installer tries to install it and then asks you to run it once more. If you do not already have ComfyUI, press Enter when asked and it downloads the official Windows portable build (about 2 GB, unpacked with 7-Zip).
+Same prompt, same seed, 1024×1024, 8 steps. The only change is the VRAM pack.
 
-Generation is 8 Euler steps at CFG 1, which is the schedule Turbo was distilled for. On 12 GB the cache stays in system RAM, and ComfyUI is started with `--lowvram` so the text encoder can sit in RAM. GGUF sampling also needs `--disable-dynamic-vram` on current ComfyUI, and the installer adds that flag.
+### Anime
 
-Images land in `outputs\`. Closing the window stops the ComfyUI process this app started.
+| 12 GB | 16 GB | 24 GB |
+|---|---|---|
+| <img src="examples/12gb-anime.jpg" width="250" alt="12 GB anime"> | <img src="examples/16gb-anime.jpg" width="250" alt="16 GB anime"> | <img src="examples/24gb-anime.jpg" width="250" alt="24 GB anime"> |
 
-The models come from [AtomicChat/Qwen-Image-2.1-Turbo-GGUF](https://huggingface.co/AtomicChat/Qwen-Image-2.1-Turbo-GGUF), [AtomicChat/Qwen-Image-2.1-Turbo-Uncensored-GGUF](https://huggingface.co/AtomicChat/Qwen-Image-2.1-Turbo-Uncensored-GGUF), and [Comfy-Org/Qwen-Image-2.1](https://huggingface.co/Comfy-Org/Qwen-Image-2.1). The denoiser is under the Qwen Research License. The text encoder is Apache-2.0. Do not use it to make sexual images of minors, or intimate images of real people without their consent.
+### Portrait
+
+| 12 GB | 16 GB | 24 GB |
+|---|---|---|
+| <img src="examples/12gb-portrait.jpg" width="250" alt="12 GB portrait"> | <img src="examples/16gb-portrait.jpg" width="250" alt="16 GB portrait"> | <img src="examples/24gb-portrait.jpg" width="250" alt="24 GB portrait"> |
+
+Q4 on 12 GB already holds the same picture. Q5 and Q8 keep a little more detail in hair, signs, and skin.
+
+## After it is open
+
+Generate with Ctrl+Enter. Images are saved in `outputs\`. Closing the window stops the ComfyUI process this app started.
+
+The models are [Qwen-Image-2.1-Turbo](https://huggingface.co/AtomicChat/Qwen-Image-2.1-Turbo-GGUF) and the [uncensored text encoder](https://huggingface.co/AtomicChat/Qwen-Image-2.1-Turbo-Uncensored-GGUF), plus the [official VAE](https://huggingface.co/Comfy-Org/Qwen-Image-2.1). The denoiser is under the Qwen Research License. The text encoder is Apache-2.0. Do not use it to make sexual images of minors, or intimate images of real people without their consent.
