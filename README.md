@@ -14,7 +14,7 @@ Each pack is a few to about 18 GB. The same vision file and VAE are shared. Run 
 
 You need an NVIDIA GPU, Windows, and Node.js 22 or newer. If Node is missing, the installer tries to install it and then asks you to run it once more. If you do not already have ComfyUI, press Enter when asked and it downloads the official Windows portable build (about 2 GB, unpacked with 7-Zip).
 
-Generation is 8 Euler steps at CFG 1, which is the schedule Turbo was distilled for. On 12 GB the cache stays in system RAM and ComfyUI is started with `--lowvram`.
+Generation is 8 Euler steps at CFG 1, which is the schedule Turbo was distilled for. On 12 GB the cache stays in system RAM, and ComfyUI is started with `--lowvram` so the text encoder can sit in RAM. GGUF sampling also needs `--disable-dynamic-vram` on current ComfyUI, and the installer adds that flag.
 
 Images land in `outputs\`. Closing the window stops the ComfyUI process this app started.
 

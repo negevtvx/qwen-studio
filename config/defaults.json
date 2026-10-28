@@ -4,7 +4,7 @@
     "comfyUrl": "http://127.0.0.1:8188",
     "comfyRoot": "",
     "launchScript": "run_nvidia_gpu.bat",
-    "launchExtraArgs": ["--disable-auto-launch", "--preview-method", "auto"],
+    "launchExtraArgs": ["--disable-auto-launch", "--preview-method", "auto", "--disable-dynamic-vram"],
     "outputDir": "outputs",
     "ollamaUrl": "http://127.0.0.1:11434",
     "autoStartComfyOnGenerate": true,

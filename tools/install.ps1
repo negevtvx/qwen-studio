@@ -167,9 +167,9 @@ $data.gen.cacheDevice = $chosen.cacheDevice
 $data.gen.cacheDtype = $chosen.cacheDtype
 $data.gen.upscaleMaxMp = $chosen.maxMp
 if ($Vram -eq '12') {
-  $data.app.launchExtraArgs = @('--disable-auto-launch', '--preview-method', 'auto', '--lowvram')
+  $data.app.launchExtraArgs = @('--disable-auto-launch', '--preview-method', 'auto', '--disable-dynamic-vram', '--lowvram')
 } else {
-  $data.app.launchExtraArgs = @('--disable-auto-launch', '--preview-method', 'auto')
+  $data.app.launchExtraArgs = @('--disable-auto-launch', '--preview-method', 'auto', '--disable-dynamic-vram')
 }
 $json = $data | ConvertTo-Json -Depth 8
 [System.IO.File]::WriteAllText($settingsPath, $json)
